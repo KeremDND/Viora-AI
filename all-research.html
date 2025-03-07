@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Publications - Viora AI</title>
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Viora-AI" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="lwhiteogo.png" alt="Viora AI Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="all-research.html" class="active">Research</a></li>
+                    <li><a href="background.html">Background</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="sign-in-button">Sign In</a>
+                <div class="theme-switch-wrapper">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="research-page">
+        <section class="research-hero">
+            <div class="container">
+                <div class="background-hero-content">
+                    <div class="background-hero-text">
+                        <h1>Research Publications</h1>
+                        <p>Advancing mental health through innovative AI research and discoveries</p>
+                        <div class="mission-stat-container">
+                            <div class="mission-stat">
+                                <span class="stat-value">75+</span>
+                                <span class="stat-label">Publications</span>
+                            </div>
+                            <div class="mission-stat">
+                                <span class="stat-value">25</span>
+                                <span class="stat-label">Active Studies</span>
+                            </div>
+                            <div class="mission-stat">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Research Partners</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="background-hero-image">
+                        <img src="images/research-illustration.jpg" alt="Research and Innovation" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-categories">
+            <div class="container">
+                <h2 class="section-heading">Browse Our Research</h2>
+                
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="paper-search" class="search-input" placeholder="Search by title, author, or keyword...">
+                    </div>
+                </div>
+                
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all">All Papers</button>
+                    <button class="filter-btn" data-filter="ai">AI & ML</button>
+                    <button class="filter-btn" data-filter="mental-health">Mental Health</button>
+                    <button class="filter-btn" data-filter="neuroscience">Neuroscience</button>
+                    <button class="filter-btn" data-filter="clinical">Clinical Studies</button>
+                </div>
+
+                <div class="research-papers-grid">
+                    <!-- Research Papers will be dynamically loaded here -->
+                </div>
+
+                <div class="papers-loader">
+                    <div class="loader"></div>
+                </div>
+                
+                <div class="no-results-message" style="display: none;">
+                    <i class="fas fa-file-circle-question"></i>
+                    <h3>No matching papers found</h3>
+                    <p>Try adjusting your search terms or browse all categories</p>
+                    <button class="reset-search-btn">Reset Search</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                Copyright © 2025 Viora-AI. All rights reserved.
+            </div>
+            <div class="footer-center">
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="made-with">
+                    <span>
+                        <img src="footer-logo.png" alt="Viora-AI Icon" />
+                        Everything with passion and Viora-AI
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Account Creation Popup -->
+    <div class="account-popup-overlay" id="accountPopup">
+        <button class="home-button" id="homeButton">← Home</button>
+        <div class="account-popup-container">
+            <div class="account-popup-content">
+                <div class="account-popup-header">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2"/>
+                            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2"/>
+                            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h2>Create new account</h2>
+                </div>
+                
+                <!-- Social Auth Buttons -->
+                <div class="account-buttons">
+                    <button class="account-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        Sign up with Google
+                    </button>
+                    <button class="account-btn apple-btn">
+                        <i class="fab fa-apple"></i>
+                        Sign up with Apple
+                    </button>
+                </div>
+                
+                <!-- Email/Password Auth Form -->
+                <form id="auth-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="auth-email">Email</label>
+                        <input type="email" id="auth-email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-password">Password</label>
+                        <input type="password" id="auth-password" required placeholder="••••••••">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" id="auth-submit-btn" class="auth-submit-btn">Sign In</button>
+                </form>
+                
+                <p class="signin-link">Already have an account? <a href="#">Sign in</a></p>
+                <p class="create-account-link">Don't have an account? <a href="#">Create account</a></p>
+                <p class="terms-links">
+                    <a href="#">Terms of Use</a> | <a href="#">Privacy policy</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample research papers data
+        const papers = [
+            {
+                title: "AI-Driven Mental Health Analysis: A Comprehensive Study",
+                authors: "Dr. Sarah Johnson, Dr. Michael Chen",
+                journal: "Journal of Medical AI Research",
+                date: "March 15, 2024",
+                category: "ai",
+                abstract: "This study explores the effectiveness of artificial intelligence in detecting early signs of mental health conditions through behavioral pattern analysis. Our findings suggest that AI models can identify subtle changes in speech patterns and facial expressions with 94% accuracy.",
+                doi: "10.1234/jmar.2024.001",
+                pdf: "papers/ai-mental-health-analysis.pdf"
+            },
+            {
+                title: "Natural Language Processing for Mental Health Screening",
+                authors: "Dr. Jennifer Williams, Dr. Sarah Johnson",
+                journal: "Computational Psychiatry",
+                date: "January 8, 2024",
+                category: "ai",
+                abstract: "This paper presents a novel NLP approach for screening depression and anxiety through text analysis of patient communications. Our model achieves 89% sensitivity and 92% specificity compared to clinician assessments.",
+                doi: "10.1145/cpsych.2024.023",
+                pdf: "papers/nlp-mental-health-screening.pdf"
+            },
+            {
+                title: "Neurological Correlates of AI-Assisted Therapy",
+                authors: "Dr. Robert Park, Dr. Lisa Chen",
+                journal: "Neuroscience Today",
+                date: "November 20, 2023",
+                category: "neuroscience",
+                abstract: "This research examines brain activity changes in patients undergoing AI-assisted therapy sessions using fMRI imaging. Results indicate significant positive changes in amygdala and prefrontal cortex activity patterns after 8 weeks of treatment.",
+                doi: "10.1038/neuro.2023.1109",
+                pdf: "papers/neurological-correlates-therapy.pdf"
+            },
+            {
+                title: "Meta-Analysis of Digital Interventions for Depression",
+                authors: "Dr. Karen Thompson, et al.",
+                journal: "Journal of Clinical Psychology",
+                date: "October 5, 2023",
+                category: "clinical",
+                abstract: "We analyzed 45 studies involving over 12,000 participants to assess the efficacy of digital mental health interventions. Results show moderate to high effect sizes comparable to traditional face-to-face therapy in mild to moderate depression cases.",
+                doi: "10.1016/j.jclinpsy.2023.08.012",
+                pdf: "papers/meta-analysis-digital-interventions.pdf"
+            },
+            {
+                title: "Multimodal Emotion Recognition Algorithms for Real-time Applications",
+                authors: "Dr. Michael Chen, Dr. James Wilson",
+                journal: "IEEE Transactions on Affective Computing",
+                date: "August 17, 2023",
+                category: "ai",
+                abstract: "This paper introduces a lightweight multimodal algorithm that combines facial expression, voice tonality, and text sentiment analysis for real-time emotion recognition with >95% accuracy while maintaining computational efficiency.",
+                doi: "10.1109/taffc.2023.0057",
+                pdf: "papers/multimodal-emotion-recognition.pdf"
+            },
+            {
+                title: "Therapeutic Alliance in Human-AI Mental Health Interventions",
+                authors: "Dr. Sarah Johnson, Dr. Emma Rodriguez",
+                journal: "Digital Health",
+                date: "July 2, 2023",
+                category: "mental-health",
+                abstract: "This study explores the formation and maintenance of therapeutic alliance between users and AI therapeutic agents. We identify key factors that strengthen user trust and engagement in digital mental health contexts.",
+                doi: "10.1177/dighea.2023.06.008",
+                pdf: "papers/therapeutic-alliance-ai.pdf"
+            }
+        ];
+
+        // DOM Elements
+        const searchInput = document.getElementById('paper-search');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const papersGrid = document.querySelector('.research-papers-grid');
+        const noResultsMessage = document.querySelector('.no-results-message');
+        const resetSearchButton = document.querySelector('.reset-search-btn');
+        
+        // Variables to track current state
+        let currentFilter = 'all';
+        let searchTerm = '';
+        
+        // Function to display papers based on filter and search
+        function displayPapers() {
+            papersGrid.innerHTML = '';
+            
+            // Filter papers based on category and search term
+            const filteredPapers = papers.filter(paper => {
+                // Category filter
+                const categoryMatch = currentFilter === 'all' || paper.category === currentFilter;
+                
+                // Search term filter (if search term exists)
+                const searchMatch = !searchTerm || 
+                    paper.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    paper.authors.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    paper.abstract.toLowerCase().includes(searchTerm.toLowerCase());
+                
+                return categoryMatch && searchMatch;
+            });
+            
+            // Show or hide no results message
+            if (filteredPapers.length === 0) {
+                papersGrid.style.display = 'none';
+                noResultsMessage.style.display = 'flex';
+            } else {
+                papersGrid.style.display = 'grid';
+                noResultsMessage.style.display = 'none';
+                
+                // Create paper cards for filtered papers
+                filteredPapers.forEach(paper => {
+                    const paperCard = `
+                        <div class="research-paper-card">
+                            <div class="paper-content">
+                                <h3>${paper.title}</h3>
+                                <p class="authors">${paper.authors}</p>
+                                <div class="paper-meta">
+                                    <span class="journal">${paper.journal}</span>
+                                    <span class="date">${paper.date}</span>
+                                </div>
+                                <p class="abstract">${paper.abstract}</p>
+                                <div class="paper-links">
+                                    <a href="${paper.pdf}" class="download-btn" download>
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                    <span class="doi">DOI: ${paper.doi}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    papersGrid.insertAdjacentHTML('beforeend', paperCard);
+                });
+            }
+        }
+        
+        // Event listeners
+        
+        // Filter buttons click
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active button
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                e.target.classList.add('active');
+                
+                // Update current filter and redisplay papers
+                currentFilter = e.target.dataset.filter;
+                displayPapers();
+            });
+        });
+        
+        // Search input
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value.trim();
+            displayPapers();
+        });
+        
+        // Reset search button
+        resetSearchButton.addEventListener('click', () => {
+            searchInput.value = '';
+            searchTerm = '';
+            currentFilter = 'all';
+            
+            // Reset active filter button
+            document.querySelector('.filter-btn.active').classList.remove('active');
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            
+            displayPapers();
+        });
+        
+        // Initialize page
+        displayPapers();
+        
+        // Theme toggle functionality is handled by the script.js file
+    </script>
+</body>
+</html>
